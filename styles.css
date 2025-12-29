@@ -43,11 +43,21 @@ body {
     z-index: 1000;
 }
 
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    margin-left: auto;
+    order: 1;
+}
+
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .logo {
@@ -607,18 +617,61 @@ footer {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
 @media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, var(--primary-color), #ee5a6f);
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        box-shadow: var(--shadow);
+        z-index: 1001;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .nav-menu a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-bottom: none;
+    }
+
     .hero-content h1 {
         font-size: 2rem;
     }
 
     .hero-content p {
-        font-size: 1rem;
-    }
-
-    .nav-menu {
-        gap: 1rem;
-        font-size: 0.9rem;
+        font-size: 1.1rem;
     }
 
     .billing-container {
@@ -627,10 +680,7 @@ footer {
 
     .bill-summary {
         position: static;
-    }
-
-    .menu-grid {
-        grid-template-columns: 1fr;
+        margin-top: 2rem;
     }
 
     .cart-item {
@@ -641,6 +691,19 @@ footer {
     .cart-item-controls {
         width: 100%;
         justify-content: space-between;
+        margin-top: 1rem;
+    }
+
+    .cart-item-price {
+        text-align: left;
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-grid,
+    .feature-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -654,8 +717,7 @@ footer {
     }
 
     .nav-menu {
-        font-size: 0.8rem;
-        gap: 0.5rem;
+        font-size: 0.9rem;
     }
 
     .hero {
@@ -663,7 +725,7 @@ footer {
     }
 
     .hero-content h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .menu-categories {
@@ -672,7 +734,16 @@ footer {
 
     .category-btn {
         padding: 0.5rem 1rem;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    .bill-container {
+        padding: 1.5rem;
+    }
+
+    .menu-item-image {
+        height: 180px;
     }
 }
-
